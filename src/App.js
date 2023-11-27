@@ -62,7 +62,7 @@ async function parseText(setter){
     return;
   }
   var text=await (await fetch(textPath)).text();
-  var list=text.split('\n');
+  var list=text.split('\n').filter(item => item != '');
   setter(list);
   isFetched=true;
 }
