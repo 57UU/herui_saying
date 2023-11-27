@@ -1,0 +1,22 @@
+.my-footer {
+
+
+    margin: auto;
+
+    padding: 0;
+
+    list-style: none;
+
+    width: 100vw;
+
+    position: fixed;
+
+    z-index: 999;
+
+    bottom: 0px;
+
+    left: 0;
+
+    right: 0;
+
+}
