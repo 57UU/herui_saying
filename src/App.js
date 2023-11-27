@@ -1,9 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import textPath from './assets/herui_saying.txt';
+
 import { useState } from 'react';
 
 
-
+const textPath="https://57uu.github.io/herui_saying_text/";
 function App() {
   const [ruiSayingList,ruiSayingList_setter]=useState([]);
   const [saying,saying_setter]=useState("");
