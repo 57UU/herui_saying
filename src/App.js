@@ -18,8 +18,11 @@ function App() {
 function Banner(){
   return (
   <>
-    <div className="container-fluid p-4 bg-primary text-white text-center">
+    <div className="container-fluid p-5 bg-primary text-white text-center">
       <h1>锐言睿语</h1>
+      <p class="  text-end">
+        <a class="text-white" href="https://github.com/57UU/herui_saying" target="_blank">About</a>
+      </p>
     </div>
   </>
   )
@@ -37,13 +40,13 @@ function Body(ruiSayingList,saying,saying_setter){
       <br/>
       <br/>
       <div className="input-group input-group-lg mb-3">
-        <input type="text" className="form-control" value={saying}/>
+        <input type="text" enabled="false" className="form-control" value={saying}/>
         <span className="input-group-text">@HeRui</span>
       </div>
       <br/>
       <br/>
       <div className='d-flex justify-content-end'>
-        <button type="button" className="btn btn-primary " onClick={()=>ButtonClick(ruiSayingList,saying_setter)}>来一句</button>
+        <button type="button" className="btn btn-primary btn-lg " onClick={()=>ButtonClick(ruiSayingList,saying_setter)}>来一句</button>
       </div>
       
     </div>
