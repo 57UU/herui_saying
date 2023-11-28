@@ -7,14 +7,32 @@ const textPath = "https://57uu.github.io/herui_saying_text/";
 function App() {
   const [ruiSayingList, ruiSayingList_setter] = useState([]);
   const [saying, saying_setter] = useState("人类永远不行");
+  const [pageIndex, pageIndexSetter] = useState(0);
   parseText(ruiSayingList_setter);
   return (
     <div>
       {Banner()}
-      {Body(ruiSayingList, saying, saying_setter)}
+      {getPage(pageIndex, pageIndexSetter, ruiSayingList, saying, saying_setter)}
       {footer()}
     </div>
   );
+}
+function getPage(index, pageIndexSetter, ruiSayingList, saying, saying_setter) {
+  if (index == 0) {
+    return Body(ruiSayingList, saying, saying_setter, pageIndexSetter);
+  } else if (index == 1) {
+    return SayingDetail(ruiSayingList, pageIndexSetter)
+
+  }
+}
+function SayingDetail(ruiSayingList, pageIndexSetter) {
+  var sayings=ruiSayingList.map((x)=>{return <p>{x}</p>});
+  return (
+    <div className="container-fluid p-4  text-center">
+    <button type="button" className="btn btn-primary btn-lg p-2" onClick={() => pageIndexSetter(0)}>Back</button>
+    {sayings}
+    </div>
+  )
 }
 function Banner() {
   return (
@@ -28,30 +46,57 @@ function Banner() {
     </>
   )
 }
+function popup() {
+  return (
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+
+          <div class="modal-header">
+            <h4 class="modal-title">模态框标题</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+
+          <div class="modal-body">
+            模态框内容..
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function footer() {
   return (
     <>
       <div class="my-footer">
         <div className=" container-fluid p-4  bg-dark text-white text-center ">
-          {hypeLink("API","https://github.com/57UU/herui_saying_text/tree/main/API")}
-          {hypeLink("Data Source","https://github.com/57UU/herui_saying_text")}
-          {hypeLink("Source Code","https://github.com/57UU/herui_saying")}
+          {hypeLink("API", "https://github.com/57UU/herui_saying_text/tree/main/API")}
+          {hypeLink("Data_Source/Contribute", "https://github.com/57UU/herui_saying_text")}
         </div>
       </div>
     </>
   )
 }
-function hypeLink(text,url){
-  return(<a href={url} className="p-2" target="_blank">{text}</a>)
+function hypeLink(text, url) {
+  return (<a href={url} className="p-2" target="_blank">{text}</a>)
 }
 
-function Body(ruiSayingList, saying, saying_setter) {
-  if (ruiSayingList == []) {
+function Body(ruiSayingList, saying, saying_setter, pageIndexSetter) {
+  if (ruiSayingList.length == 0) {
     return (
-      <>
+      <div >
         <div className="spinner-border text-primary"></div>
         <p>Loading</p>
-      </>
+      </div>
     );
   }
   return (
@@ -63,8 +108,12 @@ function Body(ruiSayingList, saying, saying_setter) {
         <br />
         <br />
         <div className='d-flex justify-content-end'>
-          <button type="button" className="btn btn-primary btn-lg " onClick={() => ButtonClick(ruiSayingList, saying_setter)}>来一句</button>
+          <button type="button" className="btn btn-primary btn-lg p-2" onClick={() => ButtonClick(ruiSayingList, saying_setter)}>来一句</button>
         </div>
+        <div className='d-flex justify-content-end p-4'>
+          <button type="button" className="btn btn-primary btn-lg p-2" onClick={() => pageIndexSetter(1)}>查看全部</button>
+        </div>
+
       </div>
 
 
@@ -76,6 +125,10 @@ function ButtonClick(ruiSayingList, saying_setter) {
   var index = Math.random() * ruiSayingList.length;
   saying_setter(ruiSayingList[Math.trunc(index)]);
 }
+
+
+
+
 var isFetched = false;
 async function parseText(setter) {
   if (isFetched) {
