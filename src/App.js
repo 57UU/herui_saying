@@ -31,7 +31,12 @@ function SayingDetail(ruiSayingList, pageIndexSetter) {
     <div className="container-fluid p-4  text-center">
     <button type="button" className="btn btn-primary btn-lg p-2" onClick={() => pageIndexSetter(0)}>Back</button>
     {sayings}
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     </div>
+    
   )
 }
 function Banner() {
