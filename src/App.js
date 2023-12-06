@@ -5,6 +5,7 @@ import {  Route,Routes,  Link } from 'react-router-dom';
 
 
 const textPath = "https://57uu.github.io/herui_saying_text/";
+var length=0;
 function App() {
   const [ruiSayingList, ruiSayingList_setter] = useState([]);
   const [saying, saying_setter] = useState("人类永远不行");
@@ -110,6 +111,9 @@ function Body(ruiSayingList, saying, saying_setter) {
   return (
     <div className="p-3 m-auto">
       <div className="container p-5 my-5 ">
+        <div className="text-center">
+          <p>HR数据库当前共{length}字，{ruiSayingList.length}条</p>
+        </div>
         <div className="border p-3  ">
           <p>{saying}</p>
         </div>
@@ -146,6 +150,7 @@ async function parseText(setter) {
     return;
   }
   var text = await (await fetch(textPath)).text();
+  length=text.length;
   var list = text.split('\n').filter(item => item != '');
   setter(list);
   isFetched = true;
