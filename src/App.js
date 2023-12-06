@@ -1,42 +1,45 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import { useState } from 'react';
+import {  Route,Routes,  Link } from 'react-router-dom';
 
 
 const textPath = "https://57uu.github.io/herui_saying_text/";
 function App() {
   const [ruiSayingList, ruiSayingList_setter] = useState([]);
   const [saying, saying_setter] = useState("人类永远不行");
-  const [pageIndex, pageIndexSetter] = useState(0);
   parseText(ruiSayingList_setter);
+  
+
+
   return (
     <div>
       {Banner()}
-      {getPage(pageIndex, pageIndexSetter, ruiSayingList, saying, saying_setter)}
+      <Routes >
+        <Route path="/sayings" element={SayingDetail(ruiSayingList)} />
+        <Route path="/" element={Body(ruiSayingList, saying, saying_setter)} />
+      </Routes>
       {footer()}
     </div>
   );
 }
-function getPage(index, pageIndexSetter, ruiSayingList, saying, saying_setter) {
-  if (index == 0) {
-    return Body(ruiSayingList, saying, saying_setter, pageIndexSetter);
-  } else if (index == 1) {
-    return SayingDetail(ruiSayingList, pageIndexSetter)
 
-  }
-}
-function SayingDetail(ruiSayingList, pageIndexSetter) {
-  var sayings=ruiSayingList.map((x)=>{return <p>{x}</p>});
+
+function SayingDetail(ruiSayingList) {
+  var sayings = ruiSayingList.map((x) => { return <p>{x}</p> });
   return (
     <div className="container-fluid p-4  text-center">
-    <button type="button" className="btn btn-primary btn-lg p-2" onClick={() => pageIndexSetter(0)}>Back</button>
-    {sayings}
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+      <Link to="/">
+        <button type="button" className="btn btn-primary btn-lg p-2" >Back</button>
+      </Link>
+
+      {sayings}
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
-    
+
   )
 }
 function Banner() {
@@ -95,7 +98,7 @@ function hypeLink(text, url) {
   return (<a href={url} className="p-2" target="_blank">{text}</a>)
 }
 
-function Body(ruiSayingList, saying, saying_setter, pageIndexSetter) {
+function Body(ruiSayingList, saying, saying_setter) {
   if (ruiSayingList.length == 0) {
     return (
       <div >
@@ -116,7 +119,10 @@ function Body(ruiSayingList, saying, saying_setter, pageIndexSetter) {
           <button type="button" className="btn btn-primary btn-lg p-2" onClick={() => ButtonClick(ruiSayingList, saying_setter)}>来一句</button>
         </div>
         <div className='d-flex justify-content-end p-4'>
-          <button type="button" className="btn btn-primary btn-lg p-2" onClick={() => pageIndexSetter(1)}>查看全部</button>
+          <Link to="/sayings">
+            <button type="button" className="btn btn-primary btn-lg p-2" >查看全部</button>
+          </Link>
+
         </div>
 
       </div>
