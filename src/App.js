@@ -47,7 +47,7 @@ function Banner() {
   return (
     <>
       <div className="container-fluid p-4 bg-primary text-white text-center">
-        <h1>锐言睿语</h1>
+        <h1>锐评</h1>
         <p class="  text-end">
           <a class="text-white" href="https://github.com/57UU/herui_saying" target="_blank">About</a>
         </p>
