@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/herui_saying/static/css/main.e2798d16.css",
-    "main.js": "/herui_saying/static/js/main.b65f2fb4.js",
+    "main.js": "/herui_saying/static/js/main.033d5958.js",
     "static/js/787.5e196795.chunk.js": "/herui_saying/static/js/787.5e196795.chunk.js",
     "index.html": "/herui_saying/index.html",
     "main.e2798d16.css.map": "/herui_saying/static/css/main.e2798d16.css.map",
-    "main.b65f2fb4.js.map": "/herui_saying/static/js/main.b65f2fb4.js.map",
+    "main.033d5958.js.map": "/herui_saying/static/js/main.033d5958.js.map",
     "787.5e196795.chunk.js.map": "/herui_saying/static/js/787.5e196795.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e2798d16.css",
-    "static/js/main.b65f2fb4.js"
+    "static/js/main.033d5958.js"
   ]
 }
