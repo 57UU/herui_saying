@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import { useState } from 'react';
-import {  Route,Routes,  Link } from 'react-router-dom';
+import {  Route,Routes,  Link,useNavigate } from 'react-router-dom';
+import {Herui_saying_card} from "./herui_saying_card"
 
 
 const textPath = "https://57uu.github.io/herui_saying_text/";
@@ -17,7 +18,8 @@ function App() {
     <div>
       {Banner()}
       <Routes >
-        <Route path="/sayings" element={SayingDetail(ruiSayingList)} />
+        <Route path="/sayings"  element={SayingDetail(ruiSayingList)} />
+        <Route path="/card/:content" element={<Herui_saying_card/>} />
         <Route path="/" element={Body(ruiSayingList, saying, saying_setter)} />
       </Routes>
       {footer()}
@@ -25,9 +27,8 @@ function App() {
   );
 }
 
-
 function SayingDetail(ruiSayingList) {
-  var sayings = ruiSayingList.map((x) => { return <p>{x}</p> });
+  var sayings = ruiSayingList.map((x) => { return <Link to={`/card/${x}`}><p>{x}</p></Link> });
   return (
     <div className="container-fluid p-4  text-center">
       <Link to="/">
@@ -55,7 +56,7 @@ function Banner() {
     </>
   )
 }
-function popup() {
+function popup(content) {
   return (
     <div class="modal" id="myModal">
       <div class="modal-dialog">
