@@ -50,7 +50,7 @@ function Banner() {
       <div className="container-fluid p-4 bg-primary text-white text-center">
         <h1>锐评</h1>
         <p class="  text-end">
-          <a class="text-white" href="https://github.com/57UU/herui_saying" target="_blank">About</a>
+          <a class="text-white" href="https://github.com/The-Brotherhood-of-SCU/herui_saying" target="_blank">About</a>
         </p>
       </div>
     </>
@@ -89,8 +89,8 @@ function footer() {
     <>
       <div class="my-footer">
         <div className=" container-fluid p-4  bg-dark text-white text-center ">
-          {hypeLink("API", "https://github.com/57UU/herui_saying_text/tree/main/API")}
-          {hypeLink("Data_Source/Contribute", "https://github.com/57UU/herui_saying_text")}
+          {hypeLink("API", "https://github.com/The-Brotherhood-of-SCU/herui_saying_text/tree/main/API")}
+          {hypeLink("Data_Source/Contribute", "https://github.com/The-Brotherhood-of-SCU/herui_saying_text")}
         </div>
       </div>
     </>
