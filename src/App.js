@@ -5,7 +5,7 @@ import {  Route,Routes,  Link,useNavigate } from 'react-router-dom';
 import {Herui_saying_card} from "./herui_saying_card"
 
 
-const textPath = "https://57uu.github.io/herui_saying_text/";
+const textPath = "https://the-brotherhood-of-scu.github.io/herui_saying_text/";
 var length=0;
 function App() {
   const [ruiSayingList, ruiSayingList_setter] = useState([]);
