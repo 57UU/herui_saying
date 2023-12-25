@@ -89,8 +89,8 @@ function footer() {
     <>
       <div class="my-footer">
         <div className=" container-fluid p-4  bg-dark text-white text-center ">
-          {hypeLink("API", "https://github.com/The-Brotherhood-of-SCU/herui_saying_text/tree/main/API")}
-          {hypeLink("Data_Source/Contribute", "https://github.com/The-Brotherhood-of-SCU/herui_saying_text")}
+          
+          {hypeLink("API/Data_Source/Contribute", "https://github.com/The-Brotherhood-of-SCU/herui_saying_text")}
         </div>
       </div>
     </>
