@@ -14,7 +14,7 @@ export function Herui_saying_card() {
                 <div className="articleCard">
                     <h1>“</h1>
                     <div class="body">{content}</div>
-                    <div class="author">——HR</div>
+                    <div class="author">——HeRui</div>
                 </div>
             </div>
         </>
