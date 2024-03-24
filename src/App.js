@@ -28,7 +28,7 @@ function App() {
 }
 
 function SayingDetail(ruiSayingList) {
-  var sayings = ruiSayingList.map((x) => { return <Link to={`/card/${x}`}><p>{x}</p></Link> });
+  var sayings = ruiSayingList.map((x,index) => { return <Link to={`/card/${x.replace("\\","%5C")}`}><p>{index}:{x}</p></Link> });
   return (
     <div className="container-fluid p-4  text-center">
       <Link to="/">
