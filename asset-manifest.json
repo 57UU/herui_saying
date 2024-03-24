@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/herui_saying/static/css/main.8257750d.css",
-    "main.js": "/herui_saying/static/js/main.800e4c0c.js",
+    "main.js": "/herui_saying/static/js/main.dc6fc5e9.js",
     "static/js/27.2194b5c8.chunk.js": "/herui_saying/static/js/27.2194b5c8.chunk.js",
     "index.html": "/herui_saying/index.html"
   },
   "entrypoints": [
     "static/css/main.8257750d.css",
-    "static/js/main.800e4c0c.js"
+    "static/js/main.dc6fc5e9.js"
   ]
 }
